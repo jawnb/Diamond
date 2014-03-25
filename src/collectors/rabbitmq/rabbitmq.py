@@ -133,7 +133,7 @@ class RabbitMQCollector(diamond.collector.Collector):
             for key in overview:
                 self._publish_metrics('', [], key, overview)
         except Exception, e:
-            self.log.error('An error occurred collecting from RabbitMQ, %s', e)
+            self.log.exception('An error occurred collecting from RabbitMQ, %s', e)
             return {}
 
     def _publish_metrics(self, name, prev_keys, key, data):
